@@ -1,0 +1,270 @@
+.solutionSection {
+  position: relative;
+  width: 100%;
+  height: 838px;
+  background: #000;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 1446px;
+  height: 838px;
+  margin: 0 auto;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.backgroundImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.leftContent {
+  position: relative;
+  z-index: 10;
+  width: 520px;
+  height: 714px;
+  padding: 62px 0 62px 47px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  color: #fff;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: -0.462px;
+  margin: 0 0 40px 0;
+  max-width: 483px;
+}
+
+.description {
+  color: #fff;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: -0.28px;
+  margin: 0 0 40px 0;
+  max-width: 476px;
+}
+
+.infoBox {
+  position: relative;
+  width: 510px;
+  height: 224px;
+  margin: 40px 0;
+}
+
+.boxBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.boxContent {
+  position: absolute;
+  left: 12px;
+  top: 0px;
+  width: 452px;
+  height: 188px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  z-index: 2;
+}
+
+.boxText {
+  color: #000;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: -0.207px;
+  margin: 0;
+}
+
+.ctaButton {
+  position: relative;
+  width: 311px;
+  height: 68px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.buttonBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.buttonText {
+  position: absolute;
+  left: 54px;
+  top: 23px;
+  width: 185px;
+  height: 24px;
+  color: #000;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: -0.176px;
+  z-index: 2;
+}
+
+.rightImage {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 834px;
+  height: 838px;
+  z-index: 5;
+}
+
+.manImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive design */
+@media (max-width: 1440px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .solutionSection {
+    height: auto;
+    min-height: 800px;
+  }
+
+  .leftContent {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px 20px;
+    height: auto;
+    text-align: center;
+  }
+
+  .rightImage {
+    position: static;
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    margin: 20px auto;
+  }
+
+  .infoBox {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+  }
+
+  .boxContent {
+    width: calc(100% - 24px);
+    left: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .boxText {
+    font-size: 16px;
+  }
+
+  .ctaButton {
+    width: 280px;
+    height: 60px;
+    margin: 30px auto 0;
+  }
+
+  .buttonText {
+    font-size: 14px;
+    top: 18px;
+    left: 47px;
+    width: 186px;
+  }
+
+  .rightImage {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .boxText {
+    font-size: 14px;
+  }
+
+  .ctaButton {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .buttonText {
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+  }
+}

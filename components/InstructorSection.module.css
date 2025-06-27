@@ -1,0 +1,322 @@
+.instructorSection {
+  position: relative;
+  width: 100%;
+  height: 845px;
+  background: #000;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 1445px;
+  height: 845px;
+  margin: 0 auto;
+  max-width: 100%;
+  display: flex;
+}
+
+.leftContent {
+  position: relative;
+  width: 692px;
+  height: 846px;
+  flex-shrink: 0;
+}
+
+.backgroundFrame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 692px;
+  height: 838px;
+  z-index: 1;
+}
+
+.instructorImage {
+  position: absolute;
+  left: 17px;
+  top: 9px;
+  width: 615px;
+  height: 833px;
+  z-index: 3;
+}
+
+.shadowRight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 846px;
+  height: 464px;
+  z-index: 2;
+}
+
+.shadowLeft {
+  position: absolute;
+  left: 228px;
+  top: 0;
+  width: 842px;
+  height: 464px;
+  transform: rotate(-90deg);
+  z-index: 2;
+}
+
+.rightContent {
+  display: flex;
+  width: 636px;
+  height: 758px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 19px;
+  flex-shrink: 0;
+  padding: 69px 0 69px 117px;
+}
+
+.titleSection {
+  width: 622.79px;
+  height: 204.545px;
+  position: relative;
+}
+
+.titleContainer {
+  display: flex;
+  width: 296px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 49px;
+  height: 132px;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+}
+
+.titleLine {
+  display: block;
+  height: 66.134px;
+  color: #fff;
+  text-align: center;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: -0.464px;
+}
+
+.signatureImages {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 305px;
+  height: 205px;
+}
+
+.signatureCarol {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  width: 196px;
+  height: 180px;
+}
+
+.signatureFelix {
+  position: absolute;
+  left: 153px;
+  top: 0;
+  width: 151px;
+  height: 180px;
+}
+
+.bioContent {
+  width: 636.366px;
+  height: 408.716px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.bioParagraph {
+  color: #fff;
+  text-align: justify;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.176px;
+  margin: 0;
+}
+
+.ctaButton {
+  position: relative;
+  width: 325.04px;
+  height: 74.655px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.buttonText {
+  position: absolute;
+  left: 61px;
+  top: 24px;
+  width: 191px;
+  height: 26px;
+  color: #000;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: -0.183px;
+  z-index: 2;
+}
+
+/* Responsive design */
+@media (max-width: 1440px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .instructorSection {
+    height: auto;
+    min-height: 800px;
+  }
+
+  .leftContent {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    margin: 0 auto 40px;
+    position: relative;
+  }
+
+  .rightContent {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .titleSection {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .titleContainer {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .signatureImages {
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: auto;
+  }
+
+  .bioContent {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .titleLine {
+    font-size: 32px;
+  }
+
+  .bioParagraph {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .ctaButton {
+    width: 280px;
+    height: 65px;
+    margin: 0 auto;
+  }
+
+  .buttonText {
+    font-size: 15px;
+    left: 54px;
+    top: 20px;
+    width: 172px;
+  }
+
+  .leftContent {
+    height: 300px;
+  }
+
+  .signatureImages {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .signatureCarol,
+  .signatureFelix {
+    position: static;
+    width: 150px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .titleLine {
+    font-size: 28px;
+  }
+
+  .bioParagraph {
+    font-size: 13px;
+  }
+
+  .ctaButton {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .buttonText {
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+  }
+
+  .leftContent {
+    height: 250px;
+  }
+}

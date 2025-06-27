@@ -1,0 +1,290 @@
+/* Performance-optimized animations using only transform and opacity */
+:root {
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.6s;
+}
+
+/* Base animation classes */
+.animate-element {
+  will-change: transform, opacity;
+}
+
+.animation-complete {
+  will-change: auto;
+}
+
+/* Smooth fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity var(--duration-slow) var(--ease-out-quart),
+    transform var(--duration-slow) var(--ease-out-quart);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translate3d(-30px, 0, 0);
+  transition:
+    opacity var(--duration-slow) var(--ease-out-quart),
+    transform var(--duration-slow) var(--ease-out-quart);
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translate3d(30px, 0, 0);
+  transition:
+    opacity var(--duration-slow) var(--ease-out-quart),
+    transform var(--duration-slow) var(--ease-out-quart);
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+  transition:
+    opacity var(--duration-slow) var(--ease-out-quart),
+    transform var(--duration-slow) var(--ease-out-quart);
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fade-in-scale {
+  opacity: 0;
+  transform: scale3d(0.95, 0.95, 1);
+  transition:
+    opacity var(--duration-normal) var(--ease-out-quart),
+    transform var(--duration-normal) var(--ease-out-quart);
+}
+
+.fade-in-scale.visible {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+/* Staggered animations with better performance */
+.stagger-container {
+  contain: layout style paint;
+}
+
+.stagger-item {
+  opacity: 0;
+  transform: translate3d(0, 25px, 0);
+  transition:
+    opacity var(--duration-normal) var(--ease-out-quart),
+    transform var(--duration-normal) var(--ease-out-quart);
+}
+
+.stagger-item.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Delayed stagger items */
+.stagger-item:nth-child(1) {
+  transition-delay: 0ms;
+}
+.stagger-item:nth-child(2) {
+  transition-delay: 100ms;
+}
+.stagger-item:nth-child(3) {
+  transition-delay: 200ms;
+}
+.stagger-item:nth-child(4) {
+  transition-delay: 300ms;
+}
+.stagger-item:nth-child(5) {
+  transition-delay: 400ms;
+}
+
+/* Smooth hover interactions */
+.hover-lift {
+  transition: transform var(--duration-fast) var(--ease-out-quart);
+  will-change: transform;
+}
+
+.hover-lift:hover {
+  transform: translate3d(0, -2px, 0);
+}
+
+.hover-lift:active {
+  transform: translate3d(0, 0, 0);
+}
+
+/* Smooth focus states for accessibility */
+.focus-ring {
+  position: relative;
+  outline: none;
+}
+
+.focus-ring::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 2px solid var(--color-primary-hover);
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out-quart);
+  pointer-events: none;
+}
+
+.focus-ring:focus-visible::after {
+  opacity: 1;
+}
+
+/* Parallax and micro-interactions */
+.parallax-light {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Loading and skeleton states */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite ease-in-out;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Comprehensive reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+
+  .fade-in,
+  .fade-in-left,
+  .fade-in-right,
+  .fade-in-up,
+  .fade-in-scale,
+  .stagger-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hover-lift:hover,
+  .hover-lift:active {
+    transform: none !important;
+  }
+
+  .parallax-light {
+    transform: none !important;
+  }
+
+  .skeleton {
+    animation: none !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .fade-in.visible,
+  .fade-in-left.visible,
+  .fade-in-right.visible,
+  .fade-in-up.visible,
+  .fade-in-scale.visible,
+  .stagger-item.visible {
+    opacity: 1;
+    filter: contrast(1.2);
+  }
+}
+
+/* Performance monitoring */
+@supports (content-visibility: auto) {
+  .animate-element {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .fade-in.visible,
+  .fade-in-left.visible,
+  .fade-in-right.visible,
+  .fade-in-up.visible,
+  .fade-in-scale.visible,
+  .stagger-item.visible {
+    opacity: 1;
+  }
+}
+
+/* Loading skeleton animations */
+.skeleton {
+  background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Mobile-specific animations */
+@media (max-width: 768px) {
+  .fade-in,
+  .fade-in-left,
+  .fade-in-right,
+  .fade-in-up,
+  .fade-in-scale,
+  .stagger-item {
+    transition-duration: 0.5s;
+  }
+}
+
+/* Performance optimizations */
+.will-animate {
+  will-change: opacity, transform;
+}
+
+.animation-complete {
+  will-change: auto;
+}
