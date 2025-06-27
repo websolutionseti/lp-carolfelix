@@ -27,5 +27,5 @@ Thumbs.db
 *.bak
 *.tmp
 
-# Ignorar todos os arquivos .png em qualquer pasta
-**/*.png
+# Não ignorar .png dentro da pasta arquivos
+!arquivos/**/*.png
